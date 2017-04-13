@@ -19,7 +19,7 @@ SELECT COUNT(*) FROM tracks WHERE media_type_id=(SELECT id FROM media_types WHER
 
 -- 3) Find the least expensive track that has the genre "Electronica/Dance".
 
-
+SELECT name, unit_price FROM tracks WHERE genre_id=(SELECT id FROM genres WHERE name='Electronica/Dance') ORDER BY unit_price ASC LIMIT 1;
 
 -- 4) Find the all the artists whose names start with A.
 
