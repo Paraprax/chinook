@@ -24,13 +24,19 @@ Track.where(media_type_id: MediaType.find_by(name: 'MPEG audio file')).order(uni
 
 # 3b) Find the name of the most expensive track that has the media type "MPEG audio file".
 
+Track.where(media_type_id: MediaType.find_by(name: 'MPEG audio file')).order(unit_price: :desc).limit(1).first.name
 
+#answer "Put The Finger On You"
 
 # 4) Find the 2 oldest artists.
 
+Artist.order(created_at: :asc).limit(2)
 
+#answer = "Les Arts Florissants & William Christie" and "Baby Consuelo", in terms of how long ago their entries were created
 
 ### Stretch Exercise (Active Record Query Interface)
 
 
 # 1) Find all the albums whose titles start with B.
+
+Album.where('title ilike ?', 'B%')
